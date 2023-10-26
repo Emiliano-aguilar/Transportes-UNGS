@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Autocompletar Ciudad de Partida y Llegada con Fechas</title>
+
+    <title>Iniciar Sesión</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
+
 <body>
-    <h1>Autocompletar Ciudad de Partida y Llegada con Fechas</h1>
+    <!-- Nav -->
+    <nav class="navbar position-relative" id="main-nav">
+        <div class="container-fluid">
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link text-link" href="./index.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-link active" aria-current="page" href="./registro.html">Registrarse</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     
-    <!-- Formulario con Ciudad de Partida y Llegada, Fechas y Número de Pasajeros -->
-    <form>
-        <label for="ciudad_partida">Ciudad de Partida:</label>
-        <input type="text" id="ciudad_partida" name="ciudad_partida" autocomplete="off">
-        <div id="sugerencias_partida"></div>
-        <label for="ciudad_llegada">Ciudad de Llegada:</label>
-        <input type="text" id="ciudad_llegada" name="ciudad_llegada" autocomplete="off">
-        <div id="sugerencias_llegada"></div>
-        <label for="fecha_ida">Fecha de Ida:</label>
-        <input type="date" id="fecha_ida" name="fecha_ida">
-        <label for="fecha_vuelta">Fecha de Vuelta:</label>
-        <input type="date" id="fecha_vuelta" name="fecha_vuelta">
-        <label for="pasajeros">Número de Pasajeros:</label>
-        <select id="pasajeros" name="pasajeros">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-        <button type="button" id="enviar">Enviar</button>
+
+    
+    <h1>Iniciar Sesión</h1>
+    <form id="loginForm">
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <button type="button" onclick="checkLogin()">Iniciar Sesión</button>
     </form>
 
-    <script src="./JS/index.js"></script>
+    <p id="error" style="color: red;"></p>
+
+    <script src="./JS/login.js"></script>
 </body>
+
 </html>
