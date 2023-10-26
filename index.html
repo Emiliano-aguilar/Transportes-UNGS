@@ -1,31 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Autocompletar Ciudad de Partida y Llegada con Fechas</title>
 </head>
-
 <body>
+    <h1>Autocompletar Ciudad de Partida y Llegada con Fechas</h1>
+    
+    <!-- Formulario con Ciudad de Partida y Llegada, Fechas y Número de Pasajeros -->
+    <form>
+        <label for="ciudad_partida">Ciudad de Partida:</label>
+        <input type="text" id="ciudad_partida" name="ciudad_partida" autocomplete="off">
+        <div id="sugerencias_partida"></div>
+        <label for="ciudad_llegada">Ciudad de Llegada:</label>
+        <input type="text" id="ciudad_llegada" name="ciudad_llegada" autocomplete="off">
+        <div id="sugerencias_llegada"></div>
+        <label for="fecha_ida">Fecha de Ida:</label>
+        <input type="date" id="fecha_ida" name="fecha_ida">
+        <label for="fecha_vuelta">Fecha de Vuelta:</label>
+        <input type="date" id="fecha_vuelta" name="fecha_vuelta">
+        <label for="pasajeros">Número de Pasajeros:</label>
+        <select id="pasajeros" name="pasajeros">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <button type="button" id="enviar">Enviar</button>
+    </form>
 
-    <!-- Nav -->
-    <nav class="navbar position-relative" id="main-nav">
-        <div class="container-fluid">
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link text-link" href="./index.html">Inicio</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link text-link" href="./creador_avisos.html">Login</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <h1>Hola Putos</h1>
-    <h6>Digo hola mundo</h6>
+    <script src="./JS/index.js"></script>
 </body>
-
 </html>
