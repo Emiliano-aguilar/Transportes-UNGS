@@ -115,6 +115,7 @@ function agregar0(num, size) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    
     const enviarButton = document.getElementById('enviar');
 
     enviarButton.addEventListener('click', function () {
