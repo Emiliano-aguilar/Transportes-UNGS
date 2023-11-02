@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Compra tu Pasaje</title>
+    <title>Compra tu Pasaje - Transportes UNGS</title>
 
     <!-- Agregar los siguientes enlaces en la sección head de tu HTML -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -13,48 +13,53 @@
 
 <body>
     <div class="container">
-        <h1 class="mt-4 mb-4">Transportes UNGS</h1>
+        <h1 class="mt-4 mb-4">Transportes UNGS - Compra tu Pasaje</h1>
 
         <form class="mt-4">
             <h3>Busca tu pasaje</h3>
-            <div class="form-group">
-                <label for="ciudad_partida">Ciudad de Partida:</label>
-                <input type="text" class="form-control" id="ciudad_partida" name="ciudad_partida" autocomplete="off">
-                <div id="sugerencias_partida"></div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="ciudad_partida">Ciudad de Partida:</label>
+                    <input type="text" class="form-control" id="ciudad_partida" name="ciudad_partida" autocomplete="off">
+                    <div id="sugerencias_partida"></div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="ciudad_llegada">Ciudad de Llegada:</label>
+                    <input type="text" class="form-control" id="ciudad_llegada" name="ciudad_llegada" autocomplete="off">
+                    <div id="sugerencias_llegada"></div>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="ciudad_llegada">Ciudad de Llegada:</label>
-                <input type="text" class="form-control" id="ciudad_llegada" name="ciudad_llegada" autocomplete="off">
-                <div id="sugerencias_llegada"></div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="fecha_ida">Fecha de Ida:</label>
+                    <input type="date" class="form-control" id="fecha_ida" name="fecha_ida">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="fecha_vuelta">Fecha de Vuelta:</label>
+                    <input type="date" class="form-control" id="fecha_vuelta" name="fecha_vuelta">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="pasajeros">Número de Pasajeros:</label>
+                    <select class="form-control" id="pasajeros" name="pasajeros">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="fecha_ida">Fecha de Ida:</label>
-                <input type="date" class="form-control" id="fecha_ida" name="fecha_ida">
-            </div>
-
-            <div class="form-group">
-                <label for="fecha_vuelta">Fecha de Vuelta:</label>
-                <input type="date" class="form-control" id="fecha_vuelta" name="fecha_vuelta">
-            </div>
-
-            <div class="form-group">
-                <label for="pasajeros">Número de Pasajeros:</label>
-                <select class="form-control" id="pasajeros" name="pasajeros">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-
-            <button type="button" class="btn btn-primary" id="enviar">Enviar</button>
+            <button type="button" class="btn btn-primary" id="enviar">Buscar Pasajes</button>
         </form>
-
-        <script src="./JS/busqueda_pasajes.js"></script>
     </div>
+
+    <!-- Agregar esta sección para cargar el archivo JavaScript -->
+    <script src="./JS/busqueda_pasajes.js"></script>
 </body>
 
 </html>

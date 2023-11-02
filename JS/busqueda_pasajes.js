@@ -59,6 +59,8 @@ enviarButton.addEventListener("click", function () {
     const fechaVuelta = new Date(fechaVueltaInput.value);
     const fechaOperativa = new Date(); // Obtener la fecha operativa actual
 
+
+    // chequea que la fecha de ida sea mayor a la fecha de vuelta
     if (fechaIda > fechaVuelta) {
         alert("La fecha de ida no puede ser posterior a la fecha de vuelta.");
         fechaIdaInput.value = "";
@@ -69,6 +71,7 @@ enviarButton.addEventListener("click", function () {
         fechaVueltaInput.value === ""
     ) {
         alert("Por favor, completa todos los campos obligatorios.");
+        //chequea que la fecha de ida sea mayor a la fecha del dia
     } else if (fechaIda < fechaOperativa) {
         alert("La fecha de ida no puede ser anterior a la fecha operativa.");
         fechaIdaInput.value = "";
