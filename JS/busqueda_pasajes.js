@@ -34,6 +34,7 @@ const enviarButton = document.getElementById("enviar");
 
 const sugerenciasPartida = document.getElementById("sugerencias_partida");
 const sugerenciasLlegada = document.getElementById("sugerencias_llegada");
+const pasajesDisponibles = document.getElementById("pasajes_disponibles");
 
 //mostrar autocompletado para cuidadPartida
 ciudadPartidaInput.addEventListener("input", function () {
@@ -115,7 +116,7 @@ function agregar0(num, size) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    
+
     const enviarButton = document.getElementById('enviar');
 
     enviarButton.addEventListener('click', function () {
@@ -142,35 +143,27 @@ document.addEventListener('DOMContentLoaded', function () {
         ) {
             alert("Por favor, completa todos los campos obligatorios.");
         } else {
-            // Crear un div con la clase "container" de Bootstrap para alinear el contenido al centro.
-            const containerDiv = document.createElement('div');
-            containerDiv.classList.add('container');
 
+            pasajesDisponibles.innerHTML = "";
+            const cardDiv = document.createElement('div');
             // Crear una única tarjeta con toda la información.
-            function crearTarjetaConInformacion() {
-                const cardDiv = document.createElement('div');
-                cardDiv.classList.add('card', 'mb-3'); // Agregar clases de Bootstrap para la tarjeta
-                cardDiv.innerHTML = `
-        <div class="card-body">
-            <h5 class="card-title">Detalles del Pasaje</h5>
-            <p><strong>Ciudad de Partida:</strong> ${ciudadPartida}</p>
-            <p><strong>Horario de Partida:</strong> ${horarioIda}</p>
-            <p><strong>Fecha de Ida:</strong> ${fechaIda}</p>
-            <p><strong>Ciudad de Llegada:</strong> ${ciudadLlegada}</p>
-            <p><strong>Horario de Vuelta:</strong> ${horarioVuelta}</p>
-            <p><strong>Fecha de Vuelta:</strong> ${fechaVuelta}</p>
-            <p><strong>Número de Pasajeros:</strong> ${pasajeros}</p>
-            <p><strong>Precio pasaje unitario:</strong> ${precio}</p>
-            <p><strong>Precio pasaje Total:</strong> ${precioTotal}</p>
-        </div>`;
-                containerDiv.appendChild(cardDiv);
-            }
 
-            // Llamar a la función para crear la tarjeta con toda la información.
-            crearTarjetaConInformacion();
+            cardDiv.classList.add('card', 'mb-3'); // Agregar clases de Bootstrap para la tarjeta
+            cardDiv.innerHTML = `
+                <div class="card-body">
+                    <h5 class="card-title">Detalles del Pasaje</h5>
+                    <p><strong>Ciudad de Partida:</strong> ${ciudadPartida}</p>
+                    <p><strong>Horario de Partida:</strong> ${horarioIda}</p>
+                    <p><strong>Fecha de Ida:</strong> ${fechaIda}</p>
+                    <p><strong>Ciudad de Llegada:</strong> ${ciudadLlegada}</p>
+                    <p><strong>Horario de Vuelta:</strong> ${horarioVuelta}</p>
+                    <p><strong>Fecha de Vuelta:</strong> ${fechaVuelta}</p>
+                    <p><strong>Número de Pasajeros:</strong> ${pasajeros}</p>
+                    <p><strong>Precio pasaje unitario:</strong> ${precio}</p>
+                    <p><strong>Precio pasaje Total:</strong> ${precioTotal}</p>
+                </div>`;
+            pasajesDisponibles.append(cardDiv);
 
-            // Agregar el contenedor al cuerpo del documento.
-            document.body.appendChild(containerDiv);
 
         }
     });

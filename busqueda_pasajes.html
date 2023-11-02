@@ -4,11 +4,13 @@
 <head>
     <title>Compra tu Pasaje - Transportes UNGS</title>
 
+
     <!-- Agregar los siguientes enlaces en la sección head de tu HTML -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
@@ -58,11 +60,32 @@
         </form>
     </div>
 
+
+    <div id="pasajes_disponibles" class="container">
+
+    </div>
+
+
+    <div>
+        <button id="ver_asientos">Ver Asientos</button>
+        <div id="seatingContainer" style="text-align: center;">
+            <table id="seatingTable"></table>
+            <div id="confirmButtonContainer"></div>
+        </div>
+    </div>
+
+
+
     
 
     <!-- Agregar esta sección para cargar el archivo JavaScript -->
-    
     <script src="./JS/busqueda_pasajes.js"></script>
+    <script src="./JS/venta_pasajes.js"></script>
+
+
+
+
+
 </body>
 
 </html>

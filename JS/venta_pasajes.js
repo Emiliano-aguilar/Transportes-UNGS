@@ -1,12 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const seating = document.getElementById("seating");
-    const confirmSeatsButton = document.getElementById("confirmSeats");
     const totalSeats = 30; // Total de asientos
     const maxBlockedSeats = 5; // Número de asientos bloqueados
     const maxSelectableSeats = 3; // Número máximo de asientos seleccionables
 
     // Función para crear la tabla de asientos
     function createSeating() {
+        const seatingTable = document.getElementById("seatingTable");
+        const confirmButtonContainer = document.getElementById("confirmButtonContainer");
+
+        // Limpia la tabla de asientos antes de crearla nuevamente
+        seatingTable.innerHTML = '';
+        confirmButtonContainer.innerHTML = '';
+
         const blockedSeats = getRandomBlockedSeats(totalSeats, maxBlockedSeats);
         let seatNumber = 1;
 
@@ -24,8 +29,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 row.appendChild(seat);
                 seatNumber++;
             }
-            seating.appendChild(row);
+            seatingTable.appendChild(row);
         }
+
+        // Agregar el botón de "Confirmar Asientos"
+        const confirmSeatsButton = document.createElement("button");
+        confirmSeatsButton.id = "confirmSeats";
+        confirmSeatsButton.textContent = "Confirmar Asientos";
+        confirmSeatsButton.addEventListener("click", confirmSeats);
+
+        // Agregar el botón de confirmación al contenedor
+        confirmButtonContainer.appendChild(confirmSeatsButton);
     }
 
     // Función para obtener asientos bloqueados de manera aleatoria
@@ -67,6 +81,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    createSeating();
-    confirmSeatsButton.addEventListener("click", confirmSeats);
+    // Agregar manejador de evento al botón "ver_asientos"
+    const verAsientosButton = document.getElementById("ver_asientos");
+    verAsientosButton.addEventListener("click", function () {
+        createSeating();
+    });
 });
