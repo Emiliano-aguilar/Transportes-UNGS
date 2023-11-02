@@ -24,10 +24,7 @@ const provincias = [
     "Tierra del Fuego",
     "Tucumán"
 ];
-
-
-
-
+//variables capturadas del HTML
 const ciudadPartidaInput = document.getElementById("ciudad_partida");
 const ciudadLlegadaInput = document.getElementById("ciudad_llegada");
 const fechaIdaInput = document.getElementById("fecha_ida");
@@ -38,7 +35,8 @@ const enviarButton = document.getElementById("enviar");
 const sugerenciasPartida = document.getElementById("sugerencias_partida");
 const sugerenciasLlegada = document.getElementById("sugerencias_llegada");
 
-ciudadPartidaInput.addEventListener("input", function() {
+//mostrar autocompletado para cuidadPartida
+ciudadPartidaInput.addEventListener("input", function () {
     const textoIngresado = ciudadPartidaInput.value.toLowerCase();
     const sugerenciasFiltradas = provincias.filter(provincia =>
         provincia.toLowerCase().includes(textoIngresado)
@@ -46,8 +44,8 @@ ciudadPartidaInput.addEventListener("input", function() {
 
     mostrarSugerencias(sugerenciasFiltradas, sugerenciasPartida, ciudadPartidaInput);
 });
-
-ciudadLlegadaInput.addEventListener("input", function() {
+//mostrar autocompletado para cuidadIda
+ciudadLlegadaInput.addEventListener("input", function () {
     const textoIngresado = ciudadLlegadaInput.value.toLowerCase();
     const sugerenciasFiltradas = provincias.filter(provincia =>
         provincia.toLowerCase().includes(textoIngresado)
@@ -55,19 +53,27 @@ ciudadLlegadaInput.addEventListener("input", function() {
 
     mostrarSugerencias(sugerenciasFiltradas, sugerenciasLlegada, ciudadLlegadaInput);
 });
-
-enviarButton.addEventListener("click", function() {
+// enviar y genera el pasaje que deseamos
+enviarButton.addEventListener("click", function () {
     const fechaIda = new Date(fechaIdaInput.value);
     const fechaVuelta = new Date(fechaVueltaInput.value);
+    const fechaOperativa = new Date(); // Obtener la fecha operativa actual
 
     if (fechaIda > fechaVuelta) {
         alert("La fecha de ida no puede ser posterior a la fecha de vuelta.");
         fechaIdaInput.value = "";
+    } else if (
+        ciudadPartidaInput.value === "" ||
+        ciudadLlegadaInput.value === "" ||
+        fechaIdaInput.value === "" ||
+        fechaVueltaInput.value === ""
+    ) {
+        alert("Por favor, completa todos los campos obligatorios.");
+    } else if (fechaIda < fechaOperativa) {
+        alert("La fecha de ida no puede ser anterior a la fecha operativa.");
+        fechaIdaInput.value = "";
     } else {
-        const ciudadPartida = ciudadPartidaInput.value;
-        const ciudadLlegada = ciudadLlegadaInput.value;
-        const numPasajeros = pasajerosSelect.value;
-        alert(`Ciudad de Partida: ${ciudadPartida}\nCiudad de Llegada: ${ciudadLlegada}\nFecha de Ida: ${fechaIdaInput.value}\nFecha de Vuelta: ${fechaVueltaInput.value}\nNúmero de Pasajeros: ${numPasajeros}`);
+        // Resto del código para crear la lista
     }
 });
 
@@ -76,10 +82,92 @@ function mostrarSugerencias(sugerenciasFiltradas, sugerenciasElement, inputEleme
     sugerenciasFiltradas.forEach(sugerencia => {
         const div = document.createElement("div");
         div.textContent = sugerencia;
-        div.addEventListener("click", function() {
+        div.addEventListener("click", function () {
             inputElement.value = sugerencia;
             sugerenciasElement.innerHTML = "";
         });
         sugerenciasElement.appendChild(div);
     });
 }
+
+function precioAleatorio() {
+    var min = 12000;
+    var max = 35000;
+    // Genera un número aleatorio entre min (inclusive) y max (inclusive)
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+function generarHorarioAleatorio() {
+    const hora = agregar0(Math.floor(Math.random() * 24), 2); // Genera una hora aleatoria entre 0 y 23
+    const minuto = agregar0(Math.floor(Math.random() * 60), 2); // Genera un minuto aleatorio entre 0 y 59
+    return `${hora}:${minuto}`;
+}
+
+function agregar0(num, size) {
+    // Función para agregar ceros a la izquierda para asegurar que tenga dos dígitos
+    let numStr = num.toString();
+    while (numStr.length < size) numStr = '0' + numStr;
+    return numStr;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const enviarButton = document.getElementById('enviar');
+
+    enviarButton.addEventListener('click', function () {
+        //valores capturados del HTML
+        const ciudadPartida = document.getElementById('ciudad_partida').value;
+        const ciudadLlegada = document.getElementById('ciudad_llegada').value;
+        const fechaIda = document.getElementById('fecha_ida').value;
+        const fechaVuelta = document.getElementById('fecha_vuelta').value;
+        const pasajeros = document.getElementById('pasajeros').value;
+
+        // valores generados
+        var precio = precioAleatorio();
+        var precioTotal = precio * pasajeros;
+        const horarioIda = generarHorarioAleatorio();
+        const horarioVuelta = generarHorarioAleatorio();
+
+
+
+        if (
+            ciudadPartida === "" ||
+            ciudadLlegada === "" ||
+            fechaIda === "" ||
+            fechaVuelta === ""
+        ) {
+            alert("Por favor, completa todos los campos obligatorios.");
+        } else {
+            // Crear un div con la clase "container" de Bootstrap para alinear el contenido al centro.
+            const containerDiv = document.createElement('div');
+            containerDiv.classList.add('container');
+
+            // Crear una única tarjeta con toda la información.
+            function crearTarjetaConInformacion() {
+                const cardDiv = document.createElement('div');
+                cardDiv.classList.add('card', 'mb-3'); // Agregar clases de Bootstrap para la tarjeta
+                cardDiv.innerHTML = `
+        <div class="card-body">
+            <h5 class="card-title">Detalles del Pasaje</h5>
+            <p><strong>Ciudad de Partida:</strong> ${ciudadPartida}</p>
+            <p><strong>Horario de Partida:</strong> ${horarioIda}</p>
+            <p><strong>Fecha de Ida:</strong> ${fechaIda}</p>
+            <p><strong>Ciudad de Llegada:</strong> ${ciudadLlegada}</p>
+            <p><strong>Horario de Vuelta:</strong> ${horarioVuelta}</p>
+            <p><strong>Fecha de Vuelta:</strong> ${fechaVuelta}</p>
+            <p><strong>Número de Pasajeros:</strong> ${pasajeros}</p>
+            <p><strong>Precio pasaje unitario:</strong> ${precio}</p>
+            <p><strong>Precio pasaje Total:</strong> ${precioTotal}</p>
+        </div>`;
+                containerDiv.appendChild(cardDiv);
+            }
+
+            // Llamar a la función para crear la tarjeta con toda la información.
+            crearTarjetaConInformacion();
+
+            // Agregar el contenedor al cuerpo del documento.
+            document.body.appendChild(containerDiv);
+
+        }
+    });
+});

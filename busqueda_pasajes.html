@@ -1,34 +1,60 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Autocompletar Ciudad de Partida y Llegada con Fechas</title>
-</head>
-<body>
-    <h1>Autocompletar Ciudad de Partida y Llegada con Fechas</h1>
-    
-    <!-- Formulario con Ciudad de Partida y Llegada, Fechas y Número de Pasajeros -->
-    <form>
-        <label for="ciudad_partida">Ciudad de Partida:</label>
-        <input type="text" id="ciudad_partida" name="ciudad_partida" autocomplete="off">
-        <div id="sugerencias_partida"></div>
-        <label for="ciudad_llegada">Ciudad de Llegada:</label>
-        <input type="text" id="ciudad_llegada" name="ciudad_llegada" autocomplete="off">
-        <div id="sugerencias_llegada"></div>
-        <label for="fecha_ida">Fecha de Ida:</label>
-        <input type="date" id="fecha_ida" name="fecha_ida">
-        <label for="fecha_vuelta">Fecha de Vuelta:</label>
-        <input type="date" id="fecha_vuelta" name="fecha_vuelta">
-        <label for="pasajeros">Número de Pasajeros:</label>
-        <select id="pasajeros" name="pasajeros">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-        <button type="button" id="enviar">Enviar</button>
-    </form>
 
-    <script src="./JS/busqueda_pasajes.js"></script>
+<head>
+    <title>Compra tu Pasaje</title>
+
+    <!-- Agregar los siguientes enlaces en la sección head de tu HTML -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-4 mb-4">Transportes UNGS</h1>
+
+        <form class="mt-4">
+            <h3>Busca tu pasaje</h3>
+            <div class="form-group">
+                <label for="ciudad_partida">Ciudad de Partida:</label>
+                <input type="text" class="form-control" id="ciudad_partida" name="ciudad_partida" autocomplete="off">
+                <div id="sugerencias_partida"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="ciudad_llegada">Ciudad de Llegada:</label>
+                <input type="text" class="form-control" id="ciudad_llegada" name="ciudad_llegada" autocomplete="off">
+                <div id="sugerencias_llegada"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="fecha_ida">Fecha de Ida:</label>
+                <input type="date" class="form-control" id="fecha_ida" name="fecha_ida">
+            </div>
+
+            <div class="form-group">
+                <label for="fecha_vuelta">Fecha de Vuelta:</label>
+                <input type="date" class="form-control" id="fecha_vuelta" name="fecha_vuelta">
+            </div>
+
+            <div class="form-group">
+                <label for="pasajeros">Número de Pasajeros:</label>
+                <select class="form-control" id="pasajeros" name="pasajeros">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+
+            <button type="button" class="btn btn-primary" id="enviar">Enviar</button>
+        </form>
+
+        <script src="./JS/busqueda_pasajes.js"></script>
+    </div>
 </body>
+
 </html>
