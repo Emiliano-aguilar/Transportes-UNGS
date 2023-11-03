@@ -122,16 +122,28 @@ document.addEventListener('DOMContentLoaded', function () {
     enviarButton.addEventListener('click', function () {
         //valores capturados del HTML
         const ciudadPartida = document.getElementById('ciudad_partida').value;
+        localStorage.setItem('ciudadPartida', ciudadPartida);
         const ciudadLlegada = document.getElementById('ciudad_llegada').value;
+        localStorage.setItem('ciudadLlegada', ciudadLlegada);
         const fechaIda = document.getElementById('fecha_ida').value;
+        localStorage.setItem('fechaIda', fechaIda);
         const fechaVuelta = document.getElementById('fecha_vuelta').value;
+        localStorage.setItem('fechaVuelta', fechaVuelta);
         const pasajeros = document.getElementById('pasajeros').value;
+        localStorage.setItem('pasajeros', pasajeros);
+
+
 
         // valores generados
         var precio = precioAleatorio();
+        localStorage.setItem('precio', precio);
         var precioTotal = precio * pasajeros;
+        localStorage.setItem('precioTotal', precioTotal);
         const horarioIda = generarHorarioAleatorio();
+        localStorage.setItem('horarioIda', horarioIda);
         const horarioVuelta = generarHorarioAleatorio();
+        localStorage.setItem('horarioVuelta', horarioIda);
+
 
 
 

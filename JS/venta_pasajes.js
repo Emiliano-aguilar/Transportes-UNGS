@@ -1,7 +1,70 @@
+
+const botonVolver = document.getElementById('volver_busqueda')
+botonVolver.addEventListener("click", function () {
+    // Especifica la URL a la que deseas redirigir
+    var nuevaURL = "busqueda_pasajes.html";
+
+    // Redirige a la nueva URL
+    window.location.href = nuevaURL;
+});
+
+
+
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
-    const totalSeats = 30; // Total de asientos
-    const maxBlockedSeats = 5; // Número de asientos bloqueados
-    const maxSelectableSeats = 3; // Número máximo de asientos seleccionables
+
+
+
+    const ResumenPasaje = document.getElementById("resumen_reserva");
+        //cantidad de asientos que puede seleccionar  
+        const asientosSelecionables = localStorage.getItem('pasajeros');
+        const ciudadPartida = localStorage.getItem('ciudadPartida');
+        const ciudadLlegada = localStorage.getItem('ciudadLlegada');
+        const fechaIda = localStorage.getItem('fechaIda');
+        const fechaVuelta = localStorage.getItem('fechaVuelta');
+        const precio = localStorage.getItem('precio');
+        const precioTotal = localStorage.getItem('precioTotal');
+        const horarioIda = localStorage.getItem('horarioIda');
+        const horarioVuelta = localStorage.getItem('horarioVuelta');
+
+
+
+    ResumenPasaje.innerHTML = "";
+    const cardDiv = document.createElement('div');
+    cardDiv.classList.add('card', 'mb-3'); // Agregar clases de Bootstrap para la tarjeta
+    cardDiv.innerHTML = `
+        <div class="card-body">
+            <h1> Resumen de tu Reserva</h1>
+            <div>
+                <h5 class="card-title">Detalles del Pasaje</h5>
+                <p><strong>Ciudad de Partida:</strong> ${ciudadPartida}</p>
+                <p><strong>Horario de Partida:</strong> ${horarioIda}</p>
+                <p><strong>Fecha de Ida:</strong> ${fechaIda}</p>
+                <p><strong>Ciudad de Llegada:</strong> ${ciudadLlegada}</p>
+                <p><strong>Horario de Vuelta:</strong> ${horarioVuelta}</p>
+                <p><strong>Fecha de Vuelta:</strong> ${fechaVuelta}</p>
+                <p><strong>Número de Pasajeros:</strong> ${asientosSelecionables}</p>
+                <p><strong>Precio pasaje unitario:</strong> ${precio}</p>
+                <p><strong>Precio pasaje Total:</strong> ${precioTotal}</p>
+            </div>
+
+        </div>`;
+        ResumenPasaje.append(cardDiv);
+
+
+
+    //////////////////////////////////////////
+    const totalAsientos = 30; // Total de asientos
+    // cantidad de asientos bloqueados, es random
+    const asientosBloqueados = Math.floor(Math.random() * 25) + 1; 
+
+
+ 
 
 
 
@@ -9,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // Función para crear la tabla de asientos
-    function createSeating() {
+    function crearTablaAsientos() {
         const seatingTable = document.getElementById("seatingTable");
         const confirmButtonContainer = document.getElementById("confirmButtonContainer");
 
@@ -17,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         seatingTable.innerHTML = '';
         confirmButtonContainer.innerHTML = '';
 
-        const blockedSeats = getRandomBlockedSeats(totalSeats, maxBlockedSeats);
+        const blockedSeats = getAsientosBloqueados(totalAsientos, asientosBloqueados);
         let seatNumber = 1;
 
         for (let i = 1; i <= 5; i++) {
@@ -29,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     seat.classList.add("blocked");
                 } else {
                     seat.dataset.status = "available";
-                    seat.addEventListener("click", toggleSeat);
+                    seat.addEventListener("click", selecionarAsientos);
                 }
                 row.appendChild(seat);
                 seatNumber++;
@@ -38,17 +101,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Agregar el botón de "Confirmar Asientos"
-        const confirmSeatsButton = document.createElement("button");
-        confirmSeatsButton.id = "confirmSeats";
-        confirmSeatsButton.textContent = "Confirmar Asientos";
-        confirmSeatsButton.addEventListener("click", confirmSeats);
+        const ConfirmarAsientos = document.createElement("button");
+        ConfirmarAsientos.id = "confirmSeats";
+        ConfirmarAsientos.textContent = "Confirmar Asientos";
+        ConfirmarAsientos.addEventListener("click", confirmarAsientos);
 
         // Agregar el botón de confirmación al contenedor
-        confirmButtonContainer.appendChild(confirmSeatsButton);
+        confirmButtonContainer.appendChild(ConfirmarAsientos);
+
+
+
     }
 
     // Función para obtener asientos bloqueados de manera aleatoria
-    function getRandomBlockedSeats(totalSeats, maxBlockedSeats) {
+    function getAsientosBloqueados(totalSeats, maxBlockedSeats) {
         const blockedSeats = new Set();
         while (blockedSeats.size < maxBlockedSeats) {
             const randomSeat = Math.floor(Math.random() * totalSeats) + 1;
@@ -58,9 +124,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Función para seleccionar/deseleccionar asientos
-    function toggleSeat(event) {
+    function selecionarAsientos(event) {
         const seat = event.target;
-        if (seat.dataset.status === "available" && countSelectedSeats() < maxSelectableSeats) {
+        if (seat.dataset.status === "available" && contadorAsientosSelecionados() < asientosSelecionables) {
             seat.style.backgroundColor = "#00ff00";
             seat.dataset.status = "selected";
         } else if (seat.dataset.status === "selected") {
@@ -70,22 +136,35 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Función para contar la cantidad de asientos seleccionados
-    function countSelectedSeats() {
+    function contadorAsientosSelecionados() {
         const selectedSeats = document.querySelectorAll("td[data-status='selected']");
         return selectedSeats.length;
     }
 
     // Función para confirmar los asientos seleccionados
-    function confirmSeats() {
+    function confirmarAsientos() {
         const selectedSeats = document.querySelectorAll("td[data-status='selected']");
-        if (selectedSeats.length === maxSelectableSeats) {
+        if (selectedSeats.length === asientosSelecionables) {
             const seatNumbers = [...selectedSeats].map(seat => seat.textContent);
             alert("Has seleccionado los asientos: " + seatNumbers.join(", "));
         } else {
-            alert(`Selecciona exactamente ${maxSelectableSeats} asientos.`);
+            Swal.fire({
+        
+                // Image: './Images/fondo.jpg',
+                title: 'PERFECTO! Se genero tu reserva ',
+                    
+                  text: `
+                  Datos de su Reserva: 
+                  Ciudad Origen: ${ciudadPartida} \n
+                  Fecha y hora Ida: ${fechaIda} a las ${horarioIda}\n
+                  Ciudad Destino: ${ciudadLlegada} \n
+                  Fecha y hora Vuelta: ${fechaVuelta} a las ${horarioVuelta}\n
+                  para: ${asientosSelecionables} personas \n
+                  `
+                });
         }
     }
 
     // Llamar a la función createSeating automáticamente cuando se carga la página
-    createSeating();
+    crearTablaAsientos();
 });
