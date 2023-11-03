@@ -1,0 +1,28 @@
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+td {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+td.occupied {
+    background-color: #ff0000;
+    pointer-events: none;
+}
+
+button {
+    display: block;
+    margin: 10px auto;
+}
+
+.blocked {
+    background-color: #ccc; /* Color gris para asientos bloqueados */
+    cursor: not-allowed;
+}
