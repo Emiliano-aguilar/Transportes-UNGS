@@ -25,12 +25,12 @@ const provincias = [
     "Tucumán"
 ];
 //variables capturadas del HTML
-const ciudadPartidaInput = document.getElementById("ciudad_partida");
-const ciudadLlegadaInput = document.getElementById("ciudad_llegada");
-const fechaIdaInput = document.getElementById("fecha_ida");
-const fechaVueltaInput = document.getElementById("fecha_vuelta");
-const pasajerosSelect = document.getElementById("pasajeros");
-const enviarButton = document.getElementById("enviar");
+export const ciudadPartidaInput = document.getElementById("ciudad_partida");
+export const ciudadLlegadaInput = document.getElementById("ciudad_llegada");
+export const fechaIdaInput = document.getElementById("fecha_ida");
+export const fechaVueltaInput = document.getElementById("fecha_vuelta");
+export const pasajerosSelect = document.getElementById("pasajeros");
+export const enviarButton = document.getElementById("enviar");
 
 const sugerenciasPartida = document.getElementById("sugerencias_partida");
 const sugerenciasLlegada = document.getElementById("sugerencias_llegada");
@@ -147,24 +147,44 @@ document.addEventListener('DOMContentLoaded', function () {
             pasajesDisponibles.innerHTML = "";
             const cardDiv = document.createElement('div');
             // Crear una única tarjeta con toda la información.
+            const btnVerAsientos = document.createElement("button");
+            btnVerAsientos.textContent = "Ver asientos"
+            btnVerAsientos.id ="ver_asientos"
 
             cardDiv.classList.add('card', 'mb-3'); // Agregar clases de Bootstrap para la tarjeta
             cardDiv.innerHTML = `
                 <div class="card-body">
-                    <h5 class="card-title">Detalles del Pasaje</h5>
-                    <p><strong>Ciudad de Partida:</strong> ${ciudadPartida}</p>
-                    <p><strong>Horario de Partida:</strong> ${horarioIda}</p>
-                    <p><strong>Fecha de Ida:</strong> ${fechaIda}</p>
-                    <p><strong>Ciudad de Llegada:</strong> ${ciudadLlegada}</p>
-                    <p><strong>Horario de Vuelta:</strong> ${horarioVuelta}</p>
-                    <p><strong>Fecha de Vuelta:</strong> ${fechaVuelta}</p>
-                    <p><strong>Número de Pasajeros:</strong> ${pasajeros}</p>
-                    <p><strong>Precio pasaje unitario:</strong> ${precio}</p>
-                    <p><strong>Precio pasaje Total:</strong> ${precioTotal}</p>
+                    <div>
+                        <h5 class="card-title">Detalles del Pasaje</h5>
+                        <p><strong>Ciudad de Partida:</strong> ${ciudadPartida}</p>
+                        <p><strong>Horario de Partida:</strong> ${horarioIda}</p>
+                        <p><strong>Fecha de Ida:</strong> ${fechaIda}</p>
+                        <p><strong>Ciudad de Llegada:</strong> ${ciudadLlegada}</p>
+                        <p><strong>Horario de Vuelta:</strong> ${horarioVuelta}</p>
+                        <p><strong>Fecha de Vuelta:</strong> ${fechaVuelta}</p>
+                        <p><strong>Número de Pasajeros:</strong> ${pasajeros}</p>
+                        <p><strong>Precio pasaje unitario:</strong> ${precio}</p>
+                        <p><strong>Precio pasaje Total:</strong> ${precioTotal}</p>
+                    </div>
+
                 </div>`;
             pasajesDisponibles.append(cardDiv);
+            pasajesDisponibles.append(btnVerAsientos);
+
+            
+            // Agregar un manejador de evento al botón
+            btnVerAsientos.addEventListener("click", function () {
+                // Especifica la URL a la que deseas redirigir
+                var nuevaURL = "venta_pasajes.html";
+
+                // Redirige a la nueva URL
+                window.location.href = nuevaURL;
+            });
+
+
 
 
         }
     });
 });
+

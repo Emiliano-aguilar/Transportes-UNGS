@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const maxBlockedSeats = 5; // Número de asientos bloqueados
     const maxSelectableSeats = 3; // Número máximo de asientos seleccionables
 
+
+
+
+
+
     // Función para crear la tabla de asientos
     function createSeating() {
         const seatingTable = document.getElementById("seatingTable");
@@ -81,9 +86,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Agregar manejador de evento al botón "ver_asientos"
-    const verAsientosButton = document.getElementById("ver_asientos");
-    verAsientosButton.addEventListener("click", function () {
-        createSeating();
-    });
+    // Llamar a la función createSeating automáticamente cuando se carga la página
+    createSeating();
 });
