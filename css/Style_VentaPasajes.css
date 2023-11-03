@@ -1,0 +1,49 @@
+body {
+    background-color: #3498db;
+    font-family: Arial, sans-serif;
+    color: #000;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: #3498db;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #086cb2;
+}
+
+.table {
+    background-color: #ffffff;
+    border: 2px solid #b0b0b0;
+}
+
+#resumen_reserva {
+    color: #3498db;
+    font-weight: bold;
+}
+
+#seatingTable td {
+    cursor: pointer;
+}
+
+#confirmSeats {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+}
+
+#confirmSeats:hover {
+    background-color: #086cb2;
+}
+
+.mt-3 {
+    margin-top: 1rem !important;
+}
