@@ -25,12 +25,12 @@ const provincias = [
     "Tucumán"
 ];
 //variables capturadas del HTML
-export const ciudadPartidaInput = document.getElementById("ciudad_partida");
-export const ciudadLlegadaInput = document.getElementById("ciudad_llegada");
-export const fechaIdaInput = document.getElementById("fecha_ida");
-export const fechaVueltaInput = document.getElementById("fecha_vuelta");
-export const pasajerosSelect = document.getElementById("pasajeros");
-export const enviarButton = document.getElementById("enviar");
+const ciudadPartidaInput = document.getElementById("ciudad_partida");
+const ciudadLlegadaInput = document.getElementById("ciudad_llegada");
+const fechaIdaInput = document.getElementById("fecha_ida");
+const fechaVueltaInput = document.getElementById("fecha_vuelta");
+const pasajerosSelect = document.getElementById("pasajeros");
+const enviarButton = document.getElementById("enviar");
 
 const sugerenciasPartida = document.getElementById("sugerencias_partida");
 const sugerenciasLlegada = document.getElementById("sugerencias_llegada");
@@ -161,7 +161,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // Crear una única tarjeta con toda la información.
             const btnVerAsientos = document.createElement("button");
             btnVerAsientos.textContent = "Ver asientos"
-            btnVerAsientos.id ="ver_asientos"
+            btnVerAsientos.setAttribute('class', 'btn btn-primary btnloco');
+            btnVerAsientos.id ="ver_asientos";
 
             cardDiv.classList.add('card', 'mb-3'); // Agregar clases de Bootstrap para la tarjeta
             cardDiv.innerHTML = `

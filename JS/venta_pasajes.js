@@ -104,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const ConfirmarAsientos = document.createElement("button");
         ConfirmarAsientos.id = "confirmSeats";
         ConfirmarAsientos.textContent = "Confirmar Asientos";
+        ConfirmarAsientos.setAttribute('class', 'btn btnloco')
         ConfirmarAsientos.addEventListener("click", confirmarAsientos);
 
         // Agregar el botón de confirmación al contenedor
