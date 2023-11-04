@@ -1,7 +1,17 @@
-/*
- * Globals
- */
+.btnloco{
+  background-color: #19D9FB;
+}
 
+#video-background {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+}
 
 /* Custom default button */
 .btn-secondary,
@@ -70,9 +80,20 @@ body {
   }
 }
 
-
-
 .navbar-brand img {
     width: 40px;
     float: left;
   }
+
+  .sticky-top {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    height: 50px;
+    padding: 10px;
+  }
+  
+  .social{
+    width: 24px;
+  }
+
