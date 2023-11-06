@@ -24,7 +24,44 @@ function registerUser() {
         apellido: apellido,
         contrasena: contrasena,
         mail: mail,
-        dni: dni
+        dni: dni,
+        pasajes: [
+            {
+              "id": "1",
+              "origen": "Buenos Aires",
+              "destino": "Cordoba",
+              "fecha": "2022-05-01",
+              "asiento": "3"
+            },
+            {
+              "id": "2",
+              "origen": "Cordoba",
+              "destino": "Mendoza",
+              "fecha": "2022-06-15",
+              "asiento": "1"
+            },
+            {
+              "id": "3",
+              "origen": "Mendoza",
+              "destino": "Buenos Aires",
+              "fecha": "2022-07-10",
+              "asiento": "5"
+            },
+            {
+              "id": "4",
+              "origen": "Buenos Aires",
+              "destino": "Salta",
+              "fecha": "2022-08-20",
+              "asiento": "2"
+            },
+            {
+              "id": "5",
+              "origen": "Salta",
+              "destino": "Jujuy",
+              "fecha": "2022-09-05",
+              "asiento": "4"
+            }
+          ]
     };
 
     var usuarioJSONString = JSON.stringify(usuarioJSON);
@@ -32,6 +69,7 @@ function registerUser() {
     // Aquí puedes guardar los datos en una base de datos o realizar otras acciones necesarias.
     localStorage.setItem(mail, usuarioJSONString);
     // Muestra una alerta de registro exitoso
-    alert("Registro exitoso. ¡Bienvenido, " + nombre + " " + apellido + "!");
     setTimeout(() => { window.location.href = "./home.html"; }, 2000)
+    alert("Registro exitoso. ¡Bienvenido, " + nombre + " " + apellido + "!");
+    
 }

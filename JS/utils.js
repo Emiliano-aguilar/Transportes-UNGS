@@ -19,5 +19,5 @@ if(sesion != null){
     document.getElementById("log-in").classList.add("is-hidden");
     document.getElementById("log-out").classList.remove("is-hidden");
     document.getElementById("log-out").classList.add("is-not-hidden");
+    document.getElementById("mis-pasajes").classList.add("is-not-hidden");
 }
-console.log(sesion);

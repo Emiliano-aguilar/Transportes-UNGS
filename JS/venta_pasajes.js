@@ -1,4 +1,3 @@
-
 const botonVolver = document.getElementById('volver_busqueda')
 botonVolver.addEventListener("click", function () {
     // Especifica la URL a la que deseas redirigir
@@ -8,17 +7,7 @@ botonVolver.addEventListener("click", function () {
     window.location.href = nuevaURL;
 });
 
-
-
-
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
-
-
 
     const ResumenPasaje = document.getElementById("resumen_reserva");
         //cantidad de asientos que puede seleccionar  
@@ -31,8 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const precioTotal = localStorage.getItem('precioTotal');
         const horarioIda = localStorage.getItem('horarioIda');
         const horarioVuelta = localStorage.getItem('horarioVuelta');
-
-
 
     ResumenPasaje.innerHTML = "";
     const cardDiv = document.createElement('div');
@@ -56,20 +43,10 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>`;
         ResumenPasaje.append(cardDiv);
 
-
-
     //////////////////////////////////////////
     const totalAsientos = 30; // Total de asientos
     // cantidad de asientos bloqueados, es random
     const asientosBloqueados = Math.floor(Math.random() * 25) + 1; 
-
-
- 
-
-
-
-
-
 
     // Función para crear la tabla de asientos
     function crearTablaAsientos() {
@@ -109,9 +86,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Agregar el botón de confirmación al contenedor
         confirmButtonContainer.appendChild(ConfirmarAsientos);
-
-
-
     }
 
     // Función para obtener asientos bloqueados de manera aleatoria

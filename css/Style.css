@@ -80,6 +80,19 @@ body {
   border-bottom-color: #fff;
 }
 
+.mis-pasajes{
+  margin-top: 65px;
+}
+
+.card {
+  background: transparent; /* Hace que el fondo de la card sea transparente */
+  border: none; /* Elimina el borde de la card, si lo hubiera */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Agrega un efecto de resplandor con sombra */
+}
+
+.card-body {
+  background: rgba(255, 255, 255, 0.702); /* Agrega un fondo semitransparente al cuerpo de la card */
+}
 
 .bd-placeholder-img {
   font-size: 1.125rem;

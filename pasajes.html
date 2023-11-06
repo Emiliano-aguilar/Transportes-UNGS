@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Transportes UNGS</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/Style.css" rel="stylesheet">
+</head>
+
+<body class="h-100 text-center text-white bg-dark">
+
+    <video id="video-background" autoplay muted loop>
+        <source src="./Images/tripvideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header>
+        <div class="sticky-top" style="background-color: #23242a; width: 100%;">
+            <a class="navbar-brand" href="home.html">
+                <img src="./Images/logo.png" alt="Divi Logo" id="logoImg">
+                <h3 class="float-md-start mb-0">Transportes UNGS</h3>
+            </a>
+            <nav class="nav nav-masthead justify-content-center float-md-end" style="margin-left: 100px;">
+                <a class="nav-link active" aria-current="page" href="home.html">HOME</a>
+                <a class="nav-link" href="busqueda_pasajes.html">PASAJES</a>
+                <a class="nav-link" href="#">NEWSLETTER</a>
+                <a class="nav-link" href="#" onclick="scrollToBottom()">CONTACTO</a>
+                <a class="nav-link" id="log-in" href="index.html">LOG IN</a>
+                <a class="nav-link is-hidden" id="log-out" onclick="logOut()">LOG OUT</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container mis-pasajes">
+        <!-- Recorre los pasajes en tu JSON -->
+        <div id="pasajes-container">
+            <!-- Aquí se generarán los componentes card -->
+        </div>
+    </div>
+
+    <footer class="text-white text-center text-lg-start" style="background-color: #23242a;">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row mt-4">
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">Sobre nosotros</h5>
+
+                    <p>
+                        Nuestro servicio de pasajes te brinda la oportunidad de descubrir nuevos destinos, sumergirte en
+                        diferentes culturas y crear recuerdos que perdurarán toda la vida.
+                    </p>
+
+                    <p>
+                        ¡Viaja con confianza, viaja con nosotros!
+                    </p>
+
+                    <div class="mt-4">
+                        <!-- Facebook -->
+                        <img class="social" src="./Images/twitter.png" alt="tw icon">
+                        <img class="social" src="./Images/instagram.png" alt="ig icon">
+                        <img class="social" src="./Images/pinterest.png" alt="pint icon">
+                        <img class="social" src="./Images/linkedin.png" alt="in icon">
+                    </div>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4 pb-1">Contacto</h5>
+
+                    <div class="form-outline form-white mb-4">
+                        <div class="form-notch">
+                            <div class="form-notch-leading" style="width: 9px;"></div>
+                            <div class="form-notch-middle" style="width: 48.8px;"></div>
+                            <div class="form-notch-trailing"></div>
+                        </div>
+                    </div>
+
+                    <ul class="fa-ul" style="margin-left: 1.65em;">
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Direccion: Juan
+                                María Gutiérrez 1150, B1613 Los Polvorines</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">Mail:
+                                ungs@edu.com.ar</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ 011 2334
+                                5467</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fas fa-print"></i></span><span class="ms-2">+ 011 2344
+                                3567</span>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">Horarios</h5>
+
+                    <ul class="fa-ul" style="margin-left: 1.65em;">
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">lunes a jueves:
+                                8hs-20hs</span>
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">viernes a sabados:
+                                8hs:22hs</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fas fa-print"></i></span><span class="ms-2">domingos:
+                                9hs-20hs</span>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 Copyright:
+            <a class="text-white" href="">transportesungs.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+    <script src="./JS/utils.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Datos de muestra en formato JSON
+        var pasajesJSON = [
+            {
+                "id": "1",
+                "origen": "Buenos Aires",
+                "destino": "Cordoba",
+                "fecha": "2022-05-01",
+                "asiento": "3"
+            },
+            {
+                "id": "2",
+                "origen": "Cordoba",
+                "destino": "Mendoza",
+                "fecha": "2022-06-15",
+                "asiento": "1"
+            },
+            {
+                "id": "3",
+                "origen": "Mendoza",
+                "destino": "Buenos Aires",
+                "fecha": "2022-07-10",
+                "asiento": "5"
+            },
+            {
+                "id": "4",
+                "origen": "Buenos Aires",
+                "destino": "Salta",
+                "fecha": "2022-08-20",
+                "asiento": "2"
+            },
+            {
+                "id": "5",
+                "origen": "Salta",
+                "destino": "Jujuy",
+                "fecha": "2022-09-05",
+                "asiento": "4"
+            }
+        ];
+
+        // Función para generar un componente card para cada pasaje
+        function generarComponentesCard() {
+            var container = document.getElementById("pasajes-container");
+            pasajesJSON.forEach(pasaje => {
+                var card = document.createElement("div");
+                card.className = "card mb-3";
+                card.innerHTML = `
+                    <div class="card-body">
+                        <h5 class="card-title">Pasaje #${pasaje.id}</h5>
+                        <p class="card-text">Origen: ${pasaje.origen}</p>
+                        <p class="card-text">Destino: ${pasaje.destino}</p>
+                        <p class="card-text">Fecha: ${pasaje.fecha}</p>
+                        <p class="card-text">Asiento: ${pasaje.asiento}</p>
+                        <button class="btn btn-danger" onclick="confirmarEliminacion(${pasaje.id})">Anular</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function eliminarPasaje(id) {
+            // Encuentra el índice del pasaje a eliminar
+            var index = pasajesJSON.findIndex(pasaje => pasaje.id === id);
+            if (index !== -1) {
+                // Elimina el pasaje del arreglo
+                pasajesJSON.splice(index, 1);
+
+                // Actualiza la interfaz
+                var container = document.getElementById("pasajes-container");
+                container.innerHTML = ""; // Borra los componentes card actuales
+                generarComponentesCard(); // Vuelve a generar los componentes card
+
+                // Muestra el mensaje de eliminación
+                alert("Pasaje eliminado con éxito.");
+
+                // Simula el envío de un correo de confirmación
+                // enviarCorreoConfirmacion();
+
+                // Muestra el mensaje de envío de correo de confirmación
+                alert("Se ha enviado un correo de confirmación a su correo.");
+            }
+        }
+
+
+        function confirmarEliminacion(id) {
+            if (confirm("¿Está seguro de anular su pasaje?")) {
+                eliminarPasaje(id);
+            }
+        }
+
+        // Genera los componentes card iniciales
+        const cs = localStorage.getItem("currentSession");
+        if(cs){
+            generarComponentesCard();
+        }else{
+            window.location.href = "./home.html";
+        }
+        
+    </script>
+</body>
+
+</html>
