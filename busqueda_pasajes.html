@@ -17,7 +17,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/Style.css" rel="stylesheet">
   </head>
-  <body class="h-100 text-center text-white bg-dark">
+  <body class="text-center text-white bg-dark">
     
     <header>
       <div class="sticky-top" style="background-color: #23242a; width: 100%;">
@@ -25,12 +25,15 @@
               <img src="./Images/logo.png" alt="Divi Logo" id="logoImg">
               <h3 class="float-md-start mb-0">Transportes UNGS</h3>
             </a>
-          <nav class="nav nav-masthead justify-content-center float-md-end" style="margin-left: 100px;">
-          <a class="nav-link" aria-current="page" href="home.html">HOME</a>
-          <a class="nav-link active" href="busqueda_pasajes.html">PASAJES</a>
-          <a class="nav-link" href="#">NEWSLETTER</a>
-          <a class="nav-link" href="#" onclick="scrollToBottom()">CONTACTO</a>
-        </nav>
+            <nav class="nav nav-masthead justify-content-center float-md-end" style="margin-left: 100px;">
+              <a class="nav-link" aria-current="page" href="home.html">HOME</a>
+              <a class="nav-link active" href="busqueda_pasajes.html">PASAJES</a>
+              <a class="nav-link" href="#">NEWSLETTER</a>
+              <a class="nav-link" href="#" onclick="scrollToBottom()">CONTACTO</a>
+              <a class="nav-link is-hidden" id="mis-pasajes" href="pasajes.html">MIS PASAJES</a>
+              <a class="nav-link" id="log-in" href="index.html">LOG IN</a>
+              <a class="nav-link is-hidden" id="log-out" onclick="logOut()">LOG OUT</a>
+            </nav>
       </div>
     </header>    
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
